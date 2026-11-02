@@ -1,0 +1,572 @@
+@import url("https://fonts.googleapis.com/css2?family=Luxurious+Roman&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  /* my colors */
+  --color-darker-blue: #0d41e1;
+  --color-dark-blue: #0c63e7;
+  --color-blue: #0a85ed !important;
+  --color-sky-blue: #09a6f3;
+  --color-light-skey-blue: #07c8f9;
+  --color-black-shade: #050505;
+  --color-dark-shade: #1c1d20; /* footer + side nav dark surface */
+  --color-off-white-shade: #fcfaf8;
+  --color-grey-shade: #383838;
+  /* Every MagneticBall uses the brand pair --color-blue -> --color-dark-blue.
+     Editorial accents below are surfaces only, never ball colours. */
+  --color-about-surface: #eaeaea; /* tinted band behind "I can help you with" */
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@font-face {
+  font-family: "ClashDisplay-Extralight";
+  src: url("/fonts/WEB/fonts/ClashDisplay-Extralight.woff2") format("woff2"),
+    url("/fonts/WEB/fonts/ClashDisplay-Extralight.woff") format("woff"),
+    url("/fonts/WEB/fonts/ClashDisplay-Extralight.ttf") format("truetype"),
+    url("/fonts/WEB/fonts/ClashDisplay-Extralight.eot");
+  font-weight: 200;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ClashDisplay-Light";
+  src: url("/fonts/WEB/fonts/ClashDisplay-Light.woff2") format("woff2"),
+    url("/fonts/WEB/fonts/ClashDisplay-Light.woff") format("woff"),
+    url("/fonts/WEB/fonts/ClashDisplay-Light.ttf") format("truetype"),
+    url("/fonts/WEB/fonts/ClashDisplay-Light.eot");
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ClashDisplay-Regular";
+  src: url("/fonts/WEB/fonts/ClashDisplay-Regular.woff2") format("woff2"),
+    url("/fonts/WEB/fonts/ClashDisplay-Regular.woff") format("woff"),
+    url("/fonts/WEB/fonts/ClashDisplay-Regular.ttf") format("truetype"),
+    url("/fonts/WEB/fonts/ClashDisplay-Regular.eot");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ClashDisplay-Medium";
+  src: url("/fonts/WEB/fonts/ClashDisplay-Medium.woff2") format("woff2"),
+    url("/fonts/WEB/fonts/ClashDisplay-Medium.woff") format("woff"),
+    url("/fonts/WEB/fonts/ClashDisplay-Medium.ttf") format("truetype"),
+    url("/fonts/WEB/fonts/ClashDisplay-Medium.eot");
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ClashDisplay-Semibold";
+  src: url("/fonts/WEB/fonts/ClashDisplay-Semibold.woff2") format("woff2"),
+    url("/fonts/WEB/fonts/ClashDisplay-Semibold.woff") format("woff"),
+    url("/fonts/WEB/fonts/ClashDisplay-Semibold.ttf") format("truetype"),
+    url("/fonts/WEB/fonts/ClashDisplay-Semibold.eot");
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ClashDisplay-Bold";
+  src: url("/fonts/WEB/fonts/ClashDisplay-Bold.woff2") format("woff2"),
+    url("/fonts/WEB/fonts/ClashDisplay-Bold.woff") format("woff"),
+    url("/fonts/WEB/fonts/ClashDisplay-Bold.ttf") format("truetype"),
+    url("/fonts/WEB/fonts/ClashDisplay-Bold.eot");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ClashDisplay-Variable";
+  src: url("/fonts/WEB/fonts/ClashDisplay-Variable.woff2") format("woff2"),
+    url("/fonts/WEB/fonts/ClashDisplay-Variable.woff") format("woff"),
+    url("/fonts/WEB/fonts/ClashDisplay-Variable.ttf") format("truetype"),
+    url("/fonts/WEB/fonts/ClashDisplay-Variable.eot");
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* Lenis Smooth Scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+body {
+  /* ClashDisplay-Variable FIRST, deliberately.
+     The per-weight families (-Regular, -Semibold, ...) each contain a single
+     face, so asking one of them for any other weight makes the browser
+     SYNTHESISE bold - the smeared, too-thick look. The variable face carries a
+     real 200-700 axis, so font-weight utilities resolve to true weights. */
+  font-family: "ClashDisplay-Variable", "ClashDisplay-Regular", sans-serif;
+  background-color: #fcfaf8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Regular */
+.luxurious-roman-regular {
+  font-family: "Luxurious Roman", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Bold */
+.luxurious-roman-bold {
+  font-family: "Luxurious Roman", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Light */
+.luxurious-roman-light {
+  font-family: "Luxurious Roman", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Medium */
+.luxurious-roman-medium {
+  font-family: "Luxurious Roman", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Italic */
+.luxurious-roman-medium-italic {
+  font-family: "Luxurious Roman", serif;
+  font-weight: 500;
+  font-style: italic;
+}
+.luxurious-roman-semibold-italic {
+  font-family: "Luxurious Roman", serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* Bold Italic */
+.luxurious-roman-bold-italic {
+  font-family: "Luxurious Roman", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.container-app {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+.container-app-center {
+  width: 75%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+/* ============================================
+   TYPOGRAPHY DESIGN SYSTEM
+   ============================================ */
+
+/*
+  Font Families:
+  - ClashDisplay-Light (weight 300): Nav links, menu items, light headings
+  - ClashDisplay-Regular (weight 400): Body text, paragraphs
+  - ClashDisplay-Medium (weight 500): Subheadings, emphasis
+  - ClashDisplay-Semibold (weight 600): Main headings, hero text
+  - ClashDisplay-Bold (weight 700): Strong emphasis, CTAs
+  - Luxurious Roman: Accent text, italic highlights (serif)
+*/
+
+/* Typography Scale */
+:root {
+  /* Font Sizes */
+  --text-xs: 0.625rem; /* 10px - Labels, captions */
+  --text-sm: 0.75rem; /* 12px - Small text, nav labels */
+  --text-base: 0.875rem; /* 14px - Body text, nav links */
+  --text-lg: 1rem; /* 16px - Large body */
+  --text-xl: 1.25rem; /* 20px - Subheadings */
+  --text-2xl: 1.5rem; /* 24px - Section titles */
+  --text-3xl: 2rem; /* 32px - Medium headings */
+  --text-4xl: 2.5rem; /* 40px - Large headings */
+  --text-5xl: 3rem; /* 48px - Menu nav items */
+  --text-6xl: 3.75rem; /* 60px - Hero subtext */
+  --text-7xl: 4.5rem; /* 72px - Hero text */
+  --text-8xl: 6rem; /* 96px - Display text */
+  --text-9xl: 8rem; /* 128px - Giant display */
+
+  /* Line Heights */
+  --leading-none: 1;
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+
+  /* Letter Spacing */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+}
+
+/* Heading Styles */
+.heading-display {
+  font-family: "ClashDisplay-Variable", sans-serif;
+  font-weight: 450;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-grey-shade);
+}
+
+.heading-primary {
+  font-family: "ClashDisplay-Variable", sans-serif;
+  font-weight: 450;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+.heading-secondary {
+  font-family: "ClashDisplay-Variable", sans-serif;
+  font-weight: 450;
+  line-height: var(--leading-snug);
+}
+
+/* Body Text Styles */
+.text-body {
+  font-family: "ClashDisplay-Variable", sans-serif;
+  font-weight: 400;
+  line-height: var(--leading-normal);
+}
+
+.text-body-light {
+  font-family: "ClashDisplay-Variable", sans-serif;
+  font-weight: 350;
+  line-height: var(--leading-normal);
+}
+
+/* Navigation Text Styles */
+.nav-link {
+  font-family: "ClashDisplay-Variable", sans-serif;
+  font-weight: 350;
+  font-size: var(--text-base);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-black-shade);
+}
+
+.nav-menu-item {
+  font-family: "ClashDisplay-Variable", sans-serif;
+  font-weight: 350;
+  font-size: var(--text-4xl);
+  line-height: var(--leading-tight);
+  color: var(--color-off-white-shade);
+}
+
+.nav-menu-label {
+  font-family: "ClashDisplay-Variable", sans-serif;
+  font-weight: 400;
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  opacity: 0.5;
+  color: var(--color-off-white-shade);
+}
+
+.nav-social-link {
+  font-family: "ClashDisplay-Variable", sans-serif;
+  font-weight: 350;
+  font-size: var(--text-sm);
+  color: var(--color-off-white-shade);
+}
+
+/* Accent Text (Luxurious Roman) */
+.text-accent {
+  font-family: "Luxurious Roman", serif;
+  font-style: italic;
+}
+
+.text-accent-medium {
+  font-family: "Luxurious Roman", serif;
+  font-weight: 450;
+  font-style: italic;
+}
+
+/* Label Styles */
+.label-small {
+  font-family: "ClashDisplay-Variable", sans-serif;
+  font-weight: 450;
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+.button .btn-wrap,
+.btn-wrap {
+  display: inline-block;
+  position: relative;
+  clip-path: polygon(
+    0px 0px,
+    100% 0px,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    0px 100%
+  );
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgb(13, 153, 255) 0%,
+    rgb(153, 250, 244) 100%
+  );
+  border-radius: 5px 5px 16px;
+}
+
+.btn-inner::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgb(0, 0, 0);
+  clip-path: polygon(
+    0px 0px,
+    100% 0px,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    0px 100%
+  );
+  z-index: -1;
+  border-radius: 5px 5px 16px;
+}
+
+@media screen and (max-width: 482px) {
+  .mobile-title-text {
+    font-size: 4.5rem !important;
+  }
+
+  .mobile-subtitle-text {
+    font-size: 3rem !important;
+  }
+
+  .mobile-developer-text {
+    font-size: 4.5rem !important;
+    line-height: 80px !important;
+  }
+
+  .mobile-subtitle-wrapper {
+    margin-top: 0.5rem !important;
+  }
+
+  .mobile-subtitle-line {
+    width: 50px !important;
+  }
+
+  .mobile-available-text,
+  .mobile-time-text {
+    font-size: 9px !important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .mobile-title-text {
+    font-size: 3.5rem !important;
+  }
+
+  .mobile-subtitle-text {
+    font-size: 2.5rem !important;
+  }
+
+  .mobile-developer-text {
+    font-size: 3.5rem !important;
+    line-height: 65px !important;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .mobile-title-text {
+    font-size: 3rem !important;
+  }
+
+  .mobile-subtitle-text {
+    font-size: 2rem !important;
+  }
+
+  .mobile-developer-text {
+    font-size: 3rem !important;
+    line-height: 55px !important;
+  }
+
+  .mobile-available-text,
+  .mobile-time-text {
+    font-size: 8px !important;
+  }
+}
+
+@media screen and (max-width: 282px) {
+  .mobile-title-text {
+    font-size: 2.5rem !important;
+  }
+
+  .mobile-subtitle-text {
+    font-size: 1.7rem !important;
+  }
+
+  .mobile-developer-text {
+    font-size: 2.5rem !important;
+    line-height: 45px !important;
+  }
+
+  .mobile-subtitle-wrapper {
+    margin-top: 0.3rem !important;
+  }
+
+  .mobile-subtitle-line {
+    width: 30px !important;
+  }
+
+  .mobile-available-text,
+  .mobile-time-text {
+    font-size: 7px !important;
+  }
+}
