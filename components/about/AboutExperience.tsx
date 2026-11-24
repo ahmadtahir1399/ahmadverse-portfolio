@@ -13,7 +13,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
  */
 const STATS = [
   { value: "500+", label: "Verified pilots", source: "DroneConnect" },
-  { value: "100K+", label: "Attendee capacity", source: "Bashbop" },
+  { value: "500+", label: "Gym members", source: "Flex Fit" },
   { value: "45ms", label: "Feedback latency", source: "Instant Response" },
 ];
 
